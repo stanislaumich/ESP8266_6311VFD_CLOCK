@@ -1,15 +1,9 @@
 #ifndef common
 #define common
-
 #include <Arduino.h>
 #include <EEPROM.h>
-
 #define pinp D2
-/*
-int XMLb0;
-int XMLb1;
-int XMLb2;
-*/
+
 
 void beep(int t1,int t2){
  unsigned long h;
@@ -27,48 +21,21 @@ void mLog(String s){
  }
 
 void Button(int state){
- switch (state) {
-    case 2:
-      //digitalWrite(rele1, HIGH);
-      //digitalWrite(rele2, LOW);
-      //digitalWrite(rele3, HIGH);
-      mLog("State 2 switched");
-      XMLb2?XMLb2=0:XMLb2=1;
-      EEPROM.write(10+state,XMLb2);
-      EEPROM.commit();
-      break;
-    case 1:
-      //digitalWrite(rele1, LOW);
-      //digitalWrite(rele2, HIGH);
-      //digitalWrite(rele3, HIGH);
-      mLog("State 1 switched");
-      XMLb1?XMLb1=0:XMLb1=1;
-      EEPROM.write(10+state,XMLb1);
-      EEPROM.commit();
-      break;
-    case 0:
-      //digitalWrite(rele1, HIGH);
-      //digitalWrite(rele2, HIGH);
-      //digitalWrite(rele3, HIGH);
-      mLog("State 0 switched");
-      XMLb0?XMLb0=0:XMLb0=1;
-      EEPROM.write(10+state,XMLb0);
-      EEPROM.commit();
-      break;
-  }
+  mLog("State 2 switched");
+  int t=0;
+  EEPROM.read(10+state)?t=0:t=1;
+  EEPROM.write(10+state,t);
+  EEPROM.commit();
  } 
 
 void initCommon(void){
   EEPROM.begin(512);
-  XMLb0=EEPROM.read(10);
-  XMLb1=EEPROM.read(11);
-  XMLb2=EEPROM.read(12);
   pinMode(pinp,OUTPUT);
   digitalWrite(pinp,LOW);
  }
- int getButton(int b){
+int getButton(int b){
   return EEPROM.read(10+b);
-  }
+ }
 
 String getValue(String data, char separator, int index){
   // String part01 = getValue(application_command,';',0); 

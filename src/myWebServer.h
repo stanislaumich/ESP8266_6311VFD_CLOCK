@@ -216,13 +216,13 @@ void buildXML(){
     XML+=XmlTime();
     XML+="</time>";
     XML+="<b0>";
-    XML+=XMLb0;
+    XML+=EEPROM.read(10);
     XML+="</b0>";
     XML+="<b1>";
-    XML+=XMLb1;
+    XML+=EEPROM.read(11);
     XML+="</b1>";
     XML+="<b2>";
-    XML+=XMLb2;
+    XML+=EEPROM.read(12);
     XML+="</b2>";
   XML+="</Donnees>"; 
  }
