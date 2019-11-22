@@ -239,7 +239,7 @@ void handlereboot(){
 void handleShowTime(void){
   //screentimeout=50000;
   String s="Long time ago...";
-  Log(s);
+  mLog(s);
   httpServer.sendHeader("Connection", "close");
   httpServer.send(200,"text/html",s);
  }
