@@ -20,11 +20,24 @@
 
 /////////////////////////////////////////////////////////////////////////////////////// 
 void setup() {
-  // put your setup code here, to run once:
+  initCommon();
+  beep(125,50);
+  Serial.begin(115200);
+  Serial.println();
+  Serial.println("Booting Sketch...");
+  MyWiFiInit();
+  MyTimeInit();
+  MyWebinit();
+  MyTeleBotInit();
+  bot.sendMessage(myTele, "Бот запущен: "+IP_to_String(WiFi.localIP()), "");
+  beep(125,50);
+   delay(50);
+  beep(125,50); 
+
 }
 
 void loop() {
   goBot();
-
+  httpServer.handleClient();
   clok();
 }

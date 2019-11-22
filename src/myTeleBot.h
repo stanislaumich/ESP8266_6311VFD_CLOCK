@@ -11,9 +11,9 @@
 #include <UniversalTelegramBot.h>
 #define myTele "357390016"
 
-#define BOTtoken ""
-//#define BOTname ""
-//#define BOTusername "Bot"
+#define BOTtoken "686030737:AAGN2_GY_wem10zGwNWYP7KyajTta5qpb2Y"
+//#define BOTname "Lz428266VFD"
+//#define BOTusername "Lz428266VFDBOT"
 
 BearSSL::WiFiClientSecure client;
 UniversalTelegramBot bot(BOTtoken, client); 
