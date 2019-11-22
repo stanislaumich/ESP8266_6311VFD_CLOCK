@@ -71,7 +71,7 @@
 #define MITSUBISHI_ZERO_MARK  750 // 17*50-100
 // #define MITSUBISHI_DOUBLE_SPACE_USECS  800  // usually ssee 713 - not using ticks as get number wrapround
 // #define MITSUBISHI_RPT_LENGTH 45000
-
+#define RAWBUF 16
 
 #define RC5_T1		889
 #define RC5_RPT_LENGTH	46000
@@ -151,7 +151,7 @@
 #define STATE_MARK     3
 #define STATE_SPACE    4
 #define STATE_STOP     5
-
+#define RAWBUF 16
 #define ERR 0
 #define DECODED 1
 
@@ -171,6 +171,8 @@ extern volatile irparams_t irparams;
 // IR detector output is active low
 #define MARK  0
 #define SPACE 1
+
+
 
 #define TOPBIT 0x80000000
 

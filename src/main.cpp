@@ -17,6 +17,9 @@
 #ifndef MyTeleBot
   #include "myTeleBot.h"
  #endif
+#ifndef myIR
+  #include "myIR.h"
+ #endif 
 
 /////////////////////////////////////////////////////////////////////////////////////// 
 void setup() {
