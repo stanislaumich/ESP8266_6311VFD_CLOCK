@@ -1,5 +1,5 @@
 #ifndef MyDisplay
-#define myDisplay
+#define MyDisplay
 #ifndef common
   #include "common.h"
  #endif
@@ -35,7 +35,7 @@ void fill_mem(uint8_t value, uint8_t number_of_bytes, uint8_t start_addr)
     write_raw(value, number_of_bytes);
 }
 
-void showfirst(int s1,int s2, int s3)
+void showfirst3(int s1,int s2, int s3)
 {
   //27
   pt6311_driver.addrSetCmd(27);
@@ -140,7 +140,6 @@ void emptyscreen(void){
 }
 
 void myDispInit(){
- void setup(void){
   //----------------Display INIT
   pt6311_driver.init(VFD_CS_PIN, VFD_CLK_PIN, VFD_DATA_PIN);
   pt6311_driver.reset(VFD_DISP_MODE_10D18S); // good VFD_DISP_MODE_10D18S

@@ -6,7 +6,7 @@
   #include "myDisplay.h"
  #endif 
 #ifndef MyWiFi
-  #include "myDisplay.h"
+  #include "myWiFi.h"
  #endif
 #ifndef myTime
   #include "myTime.h"
