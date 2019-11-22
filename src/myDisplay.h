@@ -3,6 +3,9 @@
 #ifndef common
   #include "common.h"
  #endif
+#ifndef symbols
+  #include "symbols.h"
+ #endif 
 #include <PT6311.h>
 
 #define VFD_CS_PIN D1   //blue 
@@ -13,12 +16,7 @@
 
 #define VFD_BYTES_PER_DIGIT 3      //3
 PT6311 pt6311_driver;
-// numbers
-int f[10]={140,128,12,132,128,132,140,128,140,132};
-int s[10]={196,64,195,195,71,135,135,192,199,199};
-// symbols
-int sf[10]={140,128,12,132,128,132,140,128,140,132};
-int ss[10]={196,64,195,195,71,135,135,192,199,199};
+
 
 void write_raw(uint8_t value, uint8_t number_of_bytes) 
 {
