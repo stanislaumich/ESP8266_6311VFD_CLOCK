@@ -49,7 +49,7 @@ void setup() {
 }
 
 void loop() {
-
+  MyIRWork();
   goBot();
   httpServer.handleClient();
   clok();
