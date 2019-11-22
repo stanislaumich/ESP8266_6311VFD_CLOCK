@@ -21,10 +21,10 @@ ESP8266HTTPUpdateServer httpUpdater;
 File fsUploadFile;
 String XML;
 
-void Log(String s){
+/*void mLog(String s){
   Serial.println(s);
  }
-
+*/
 String getContentType(String filename) {
   if (httpServer.hasArg("download")) return "application/octet-stream";
   else if (filename.endsWith(".htm")) return "text/html";
@@ -67,7 +67,7 @@ bool handleFileRead(String path) {
  }
 
 void handleFileUpload() {
-  Log("Upload file");
+  mLog("Upload file");
   if (httpServer.uri() != "/edit") return;
   HTTPUpload& upload = httpServer.upload();
   if (upload.status == UPLOAD_FILE_START) {
@@ -86,7 +86,7 @@ void handleFileUpload() {
  }
 
 void handleFileDelete() {
-  Log("Delete file");
+  mLog("Delete file");
   if (httpServer.args() == 0) return httpServer.send(500, "text/plain", "BAD ARGS");
   String path = httpServer.arg(0);
   if (path == "/")
@@ -98,7 +98,7 @@ void handleFileDelete() {
   path = String();
  }
 void handleFileCreate() {
-  Log("Create file");
+  mLog("Create file");
   if (httpServer.args() == 0)
     return httpServer.send(500, "text/plain", "BAD ARGS");
   String path = httpServer.arg(0);
