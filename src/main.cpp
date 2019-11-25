@@ -34,6 +34,8 @@ void setup() {
   MyIRInit();
   mLog("WiFi...");
   MyWiFiInit();
+  //mLog("SSDP...");
+  //SSDP.begin();
   mLog("Time...");
   MyTimeInit();
   mLog("Web...");
