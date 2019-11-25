@@ -14,8 +14,8 @@
 IPAddress ip(192,168,1,235);  
 IPAddress gateway(192,168,1,1);
 IPAddress subnet(255,255,255,0);
-IPAddress dns1(194,158,196,206);
-IPAddress dns2(194,158,196,205);
+IPAddress dns1(8,8,8,8);
+IPAddress dns2(1,1,1,1);
 #endif
 #ifdef work
 #ifndef STASSID
@@ -35,7 +35,7 @@ const char* password = STAPSK;
 
 void MyWiFiInit(void){
   WiFi.mode(WIFI_AP_STA);
-  WiFi.softAP("ESP82-VFD-Clock");
+  WiFi.softAP("ESP82VFD");
   WiFi.config(ip, gateway, subnet, dns1, dns2);
   WiFi.begin(ssid, password);
   while (WiFi.waitForConnectResult() != WL_CONNECTED) {
