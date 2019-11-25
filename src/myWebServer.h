@@ -281,5 +281,5 @@ void MyWebinit(void){
 
   httpServer.begin();
  
-  Serial.print("HTTPUpdateServer ready! Open http://192.168.0.234/update in your browser\n");
+  Serial.println("HTTPUpdateServer ready! Open http://192.168.1.235/update in your browser\n");
  }
