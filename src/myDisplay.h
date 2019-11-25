@@ -137,7 +137,7 @@ void emptyscreen(void){
   }
 }
 
-void myDispInit(){
+void myDispInit(void){
   //----------------Display INIT
   pt6311_driver.init(VFD_CS_PIN, VFD_CLK_PIN, VFD_DATA_PIN);
   pt6311_driver.reset(VFD_DISP_MODE_10D18S); // good VFD_DISP_MODE_10D18S

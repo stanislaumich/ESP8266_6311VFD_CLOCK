@@ -24,7 +24,8 @@
 /////////////////////////////////////////////////////////////////////////////////////// 
 void setup() {
   Serial.begin(115200);
-  mLog(" ");    
+  mLog(" ");
+  myDispInit();    
   mLog("Booting...");
   mLog("Starting common...");
   initCommon();    
@@ -49,10 +50,18 @@ void setup() {
   beep(125,50); 
   mLog("Let's do it.");
 }
-
+unsigned long prev;
 void loop() {
+ 
   MyIRWork();
   goBot();
   httpServer.handleClient();
   clok();
+  //writeled(0); 
+  //    show1(weekday);
+  //    showtime(hour,minute,second);
+  if (millis()-prev>1000){
+  DisplayTime();
+  prev=millis();
+  }
 }

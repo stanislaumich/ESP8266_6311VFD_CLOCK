@@ -69,7 +69,8 @@ void DisplayTime(void) {
   if ((m==30)&&(z)){beep(150,50);delay(50);beep(150,50);z=false;}  
   gh=h;
   gm=m;
-  
+  show1(weekday);
+  showtime(h,m,0);
  }
 
 
@@ -141,8 +142,9 @@ void clok() {
     hour = ( ntp_time / 3600 ) % 24;
     sec=ntp_time % 60;
     points = !points;
+    
    }
-   DisplayTime();  
+     
  }
 
 
