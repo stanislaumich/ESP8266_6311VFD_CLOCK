@@ -31,8 +31,8 @@ void setup() {
   initCommon();    
   mLog("Beep...");
   beep(125,50);
-  mLog("IR...");
-  MyIRInit();
+  //mLog("IR...");
+  //MyIRInit();
   mLog("WiFi...");
   MyWiFiInit();
   //mLog("SSDP...");
@@ -52,8 +52,7 @@ void setup() {
 }
 unsigned long prev;
 void loop() {
- 
-  MyIRWork();
+  //MyIRWork();
   goBot();
   httpServer.handleClient();
   clok();

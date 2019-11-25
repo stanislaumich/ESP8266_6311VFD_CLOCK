@@ -12,7 +12,7 @@
 #define VFD_CLK_PIN D2  //gray 
 #define VFD_DATA_PIN D3 //brown 
 
-#define IRpin D4
+
 
 #define VFD_BYTES_PER_DIGIT 3      //3
 PT6311 pt6311_driver;
@@ -63,7 +63,7 @@ void show1(int s1)
   pt6311_driver.data(ss[s1], false, false);
   pt6311_driver.data(0, false, true);
 }
-void showtime(int h, int m,int ss)
+void showtime3(int h, int m,int ss)
 {
   //18
   pt6311_driver.addrSetCmd(18);
@@ -102,7 +102,47 @@ void showtime(int h, int m,int ss)
   pt6311_driver.data(s[ss%10], false, false);
   pt6311_driver.data(0, false, true);
 }
-
+void showtime2(int h, int m)
+{
+  /* 
+  //18
+  pt6311_driver.addrSetCmd(18);
+  pt6311_driver.displayMemWriteCmd(true, false);
+  pt6311_driver.data(f[(h-h%10)/10]+0, false, false);
+  pt6311_driver.data(s[(h-h%10)/10], false, false);
+  pt6311_driver.data(0, false, true);
+  //15
+  pt6311_driver.addrSetCmd(15);
+  pt6311_driver.displayMemWriteCmd(true, false);
+  pt6311_driver.data(f[h%10]+2, false, false);
+  pt6311_driver.data(s[h%10], false, false);
+  pt6311_driver.data(0, false, true);
+  */
+  //12
+  pt6311_driver.addrSetCmd(12);
+  pt6311_driver.displayMemWriteCmd(true, false);
+  pt6311_driver.data(f[(h-h%10)/10]+0, false, false);
+  pt6311_driver.data(s[(h-h%10)/10], false, false);
+  pt6311_driver.data(0, false, true);
+  //9
+  pt6311_driver.addrSetCmd(9);
+  pt6311_driver.displayMemWriteCmd(true, false);
+  pt6311_driver.data(f[h%10]+2, false, false);
+  pt6311_driver.data(s[h%10], false, false);
+  pt6311_driver.data(0, false, true);
+  //6
+  pt6311_driver.addrSetCmd(6);
+  pt6311_driver.displayMemWriteCmd(true, false);
+  pt6311_driver.data(f[(m-m%10)/10]+0, false, false);
+  pt6311_driver.data(s[(m-m%10)/10], false, false);
+  pt6311_driver.data(0, false, true);
+  //3
+  pt6311_driver.addrSetCmd(3);
+  pt6311_driver.displayMemWriteCmd(true, false);
+  pt6311_driver.data(f[m%10], false, false);
+  pt6311_driver.data(s[m%10], false, false);
+  pt6311_driver.data(0, false, true);
+}
 /*
 
 unsigned long highWord = word(packetBuffer[40], packetBuffer[41]);
@@ -142,7 +182,7 @@ void myDispInit(void){
   pt6311_driver.init(VFD_CS_PIN, VFD_CLK_PIN, VFD_DATA_PIN);
   pt6311_driver.reset(VFD_DISP_MODE_10D18S); // good VFD_DISP_MODE_10D18S
   emptyscreen();
-  showtime(0,0,0);
+  //showtime2(0,0);
   writeled(0);
   //----------------Display
  }

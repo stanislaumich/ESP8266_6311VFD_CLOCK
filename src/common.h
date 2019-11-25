@@ -20,14 +20,14 @@
 
 
 void beep(int t1,int t2){
- unsigned long h;
+ /*unsigned long h;
   h=millis();
   while (millis()-h<t1){
    digitalWrite(pinp,HIGH);
    delayMicroseconds(t2);
    digitalWrite(pinp,LOW);
    delayMicroseconds(t2);
-  }
+  }*/
  }
 
 void mLog(String s){
@@ -35,7 +35,7 @@ void mLog(String s){
  }
 
 void Button(int state){
-  mLog("State 2 switched");
+  mLog("State switched");
   int t=0;
   EEPROM.read(10+state)?t=0:t=1;
   EEPROM.write(10+state,t);
@@ -44,8 +44,8 @@ void Button(int state){
 
 void initCommon(void){
   EEPROM.begin(512);
-  pinMode(pinp,OUTPUT);
-  digitalWrite(pinp,LOW);
+  //pinMode(pinp,OUTPUT);
+  //digitalWrite(pinp,LOW);
  }
 int getButton(int b){
   return EEPROM.read(10+b);

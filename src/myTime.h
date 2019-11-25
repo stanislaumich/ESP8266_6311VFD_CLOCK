@@ -70,7 +70,7 @@ void DisplayTime(void) {
   gh=h;
   gm=m;
   show1(weekday);
-  showtime(h,m,0);
+  showtime2(h,m);
  }
 
 
