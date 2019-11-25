@@ -5,7 +5,10 @@
 #ifndef common
   #include "common.h"
  #endif
-int RECV_PIN = 2; //an IR detector/demodulatord is connected to GPIO pin 2 
+#ifndef MyTeleBot
+  #include "myTeleBot.h"
+ #endif 
+int RECV_PIN = NODEMCU_D5; //an IR detector/demodulatord is connected to GPIO pin 2 
 
 IRrecv irrecv(RECV_PIN);
 decode_results results;
@@ -16,7 +19,9 @@ void MyIRInit(void){
 
 void MyIRWork(void){
     if (irrecv.decode(&results)) {
-    mLog(String(results.value));//, HEX);
+    String mess =  String(results.value,HEX);
+    mLog(mess);//, HEX);
+    bot.sendMessage(myTele, mess, "");
     irrecv.resume(); // Receive the next value
   } 
  }

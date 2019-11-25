@@ -84,7 +84,7 @@ void handleNewMessages(int numNewMessages) {
     }
 
     if (text == "/start") {
-      String welcome = "Arduino 8266 UNO Bot, " + from_name + ".\n";
+      String welcome = "Arduino 8266 VFD Bot, " + from_name + ".\n";
       welcome += "/b1 : to switch the button N\n";
       welcome += "/beep : to beep\n";
       welcome += "/chat : to return chat_id\n";
