@@ -51,6 +51,17 @@ void handleNewMessages(int numNewMessages) {
       bot.sendMessage(chat_id, "Button 2", "");
     }
 
+    if (text == "/on") {
+      String mess="I am ON";
+      myON = true;
+      bot.sendMessage(chat_id, from_name+",\n"+mess, "");
+    }
+    if (text == "/off") {
+      String mess="I am OFF";
+      myON = false;
+      bot.sendMessage(chat_id, from_name+",\n"+mess, "");
+    }  
+    
     if (text.indexOf("/bud")==0) {
       String sa = getValue(text,' ',1);
       String mess="\n";

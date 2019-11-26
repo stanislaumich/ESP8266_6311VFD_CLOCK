@@ -18,8 +18,10 @@
 
 #define pinp D7
 
+bool myON;
 
 void beep(int t1,int t2){
+ if (myON){
  unsigned long h;
   h=millis();
   while (millis()-h<t1){
@@ -28,6 +30,7 @@ void beep(int t1,int t2){
    digitalWrite(pinp,LOW);
    delayMicroseconds(t2);
   }
+ }
  }
 
 void mLog(String s){
@@ -46,8 +49,9 @@ void initCommon(void){
   EEPROM.begin(512);
   pinMode(pinp,OUTPUT);
   digitalWrite(pinp,LOW);
+  myON=true;
  }
- 
+
 int getButton(int b){
   return EEPROM.read(10+b);
  }

@@ -21,6 +21,8 @@
   #include "myIR.h"
  #endif 
 
+
+
 /////////////////////////////////////////////////////////////////////////////////////// 
 void setup() {
   Serial.begin(115200);
@@ -60,7 +62,7 @@ void loop() {
   //    show1(weekday);
   //    showtime(hour,minute,second);
   if (millis()-prev>1000){
-  DisplayTime();
+  myON?DisplayTime():emptyscreen();
   prev=millis();
   }
 }
