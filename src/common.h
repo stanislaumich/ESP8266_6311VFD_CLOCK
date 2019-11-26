@@ -10,24 +10,24 @@
 #define NODEMCU_D4 2
 #define NODEMCU_D5 14 // d5 pult
 #define NODEMCU_D6 12
-#define NODEMCU_D7 13
+#define NODEMCU_D7 13// beeper
 #define NODEMCU_D8 15
 #define NODEMCU_D9 3
 #define NODEMCU_D10 1
 #define NODEMCU_D12 10
 
-#define pinp D2
+#define pinp D7
 
 
 void beep(int t1,int t2){
- /*unsigned long h;
+ unsigned long h;
   h=millis();
   while (millis()-h<t1){
    digitalWrite(pinp,HIGH);
    delayMicroseconds(t2);
    digitalWrite(pinp,LOW);
    delayMicroseconds(t2);
-  }*/
+  }
  }
 
 void mLog(String s){
@@ -44,9 +44,10 @@ void Button(int state){
 
 void initCommon(void){
   EEPROM.begin(512);
-  //pinMode(pinp,OUTPUT);
-  //digitalWrite(pinp,LOW);
+  pinMode(pinp,OUTPUT);
+  digitalWrite(pinp,LOW);
  }
+ 
 int getButton(int b){
   return EEPROM.read(10+b);
  }
