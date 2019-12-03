@@ -28,7 +28,7 @@ uint8_t hour, mins, sec;
 bool z=true;
 #define TIMEZONE 3
 String timestr;
-int budilo=0;
+volatile int budilo=0;
 
 IPAddress timeServerIP; 
 const char* ntpServerName = "time.nist.gov";
@@ -45,6 +45,10 @@ void DisplayTime(void) {
   
   int th = EEPROM.read(0);
   int tm = EEPROM.read(1);  
+ if (th==0&&tm==0){
+
+ } 
+ else{
   if (th == h && tm == m && budilo<3) {
     //addds("ALARMA!!!!");
     Serial.write("ALARMA!!!!");
@@ -56,7 +60,10 @@ void DisplayTime(void) {
     delay(300);
     budilo++;
   }
-  else{budilo=0;}
+  else{
+    budilo=0;
+   }
+}
   if (gm!=m){
     String Time ="";
     if (h<10){Time+= "0"+(String)h+":";}else{Time+= (String)h+":";}
