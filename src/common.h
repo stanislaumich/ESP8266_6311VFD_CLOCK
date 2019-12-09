@@ -19,6 +19,12 @@
 #define pinp D7
 
 bool myON;
+#define myTele "357390016"
+String Esp32Clock="Lz42Esp32Clock";
+String S868 ="519049530";
+String myID="686030737";
+String myName="Lz428266VFD";
+
 
 void beep(int t1,int t2){
  if (myON){
